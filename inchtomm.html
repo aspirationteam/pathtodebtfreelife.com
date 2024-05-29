@@ -16,33 +16,35 @@
         }
         .container {
             background: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 80%;
+            max-width: 600px;
         }
         h1 {
-            font-size: 2em;
-            margin-bottom: 20px;
+            font-size: 1.8em;
+            margin-bottom: 15px;
         }
         h2 {
-            font-size: 1.5em;
+            font-size: 1.3em;
             margin-bottom: 10px;
         }
         label {
-            font-size: 1.2em;
+            font-size: 1em;
             margin-top: 10px;
         }
         input {
-            font-size: 1.2em;
+            font-size: 1em;
             padding: 5px;
             margin: 10px 0;
             width: calc(100% - 22px);
             box-sizing: border-box;
         }
         .input-group {
-            margin-bottom: 20px;
-            padding: 20px;
+            margin-bottom: 15px;
+            padding: 15px;
             border-radius: 10px;
         }
         .length-converter {
@@ -50,6 +52,19 @@
         }
         .weight-converter {
             background-color: #f8d7da;
+        }
+        .clear-button {
+            font-size: 1em;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .clear-button:hover {
+            background-color: #0056b3;
         }
     </style>
     <script>
@@ -87,6 +102,18 @@
             document.getElementById('lb').value = lb;
             document.getElementById('oz').value = oz.toFixed(2);
         }
+
+        function clearAll() {
+            document.getElementById('lengthInches').value = '';
+            document.getElementById('widthInches').value = '';
+            document.getElementById('heightInches').value = '';
+            document.getElementById('lengthMm').value = '';
+            document.getElementById('widthMm').value = '';
+            document.getElementById('heightMm').value = '';
+            document.getElementById('lb').value = '';
+            document.getElementById('oz').value = '';
+            document.getElementById('grams').value = '';
+        }
     </script>
 </head>
 <body>
@@ -122,6 +149,7 @@
             <label for="grams">Grams (g):</label>
             <input type="number" id="grams" step="any" oninput="convertGToLbOz()">
         </div>
+        <button class="clear-button" onclick="clearAll()">Clear All</button>
     </div>
 </body>
 </html>
