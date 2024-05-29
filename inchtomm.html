@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Length and Weight Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        label {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        input {
+            font-size: 1.2em;
+            padding: 5px;
+            margin: 10px 0;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .length-converter {
+            background-color: #d1e7dd;
+        }
+        .weight-converter {
+            background-color: #f8d7da;
+        }
+    </style>
+    <script>
+        function convertInchesToMm() {
+            const lengthInches = parseFloat(document.getElementById('lengthInches').value) || 0;
+            const widthInches = parseFloat(document.getElementById('widthInches').value) || 0;
+            const heightInches = parseFloat(document.getElementById('heightInches').value) || 0;
+            document.getElementById('lengthMm').value = (lengthInches * 25.4).toFixed(2);
+            document.getElementById('widthMm').value = (widthInches * 25.4).toFixed(2);
+            document.getElementById('heightMm').value = (heightInches * 25.4).toFixed(2);
+        }
+
+        function convertMmToInches() {
+            const lengthMm = parseFloat(document.getElementById('lengthMm').value) || 0;
+            const widthMm = parseFloat(document.getElementById('widthMm').value) || 0;
+            const heightMm = parseFloat(document.getElementById('heightMm').value) || 0;
+            document.getElementById('lengthInches').value = (lengthMm / 25.4).toFixed(2);
+            document.getElementById('widthInches').value = (widthMm / 25.4).toFixed(2);
+            document.getElementById('heightInches').value = (heightMm / 25.4).toFixed(2);
+        }
+
+        function convertLbOzToG() {
+            const lb = parseFloat(document.getElementById('lb').value) || 0;
+            const oz = parseFloat(document.getElementById('oz').value) || 0;
+            const totalOz = lb * 16 + oz;
+            const grams = totalOz * 28.3495;
+            document.getElementById('grams').value = grams.toFixed(2);
+        }
+
+        function convertGToLbOz() {
+            const grams = parseFloat(document.getElementById('grams').value) || 0;
+            const totalOz = grams / 28.3495;
+            const lb = Math.floor(totalOz / 16);
+            const oz = totalOz % 16;
+            document.getElementById('lb').value = lb;
+            document.getElementById('oz').value = oz.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Length and Weight Converter</h1>
+        <div class="input-group length-converter">
+            <h2>Inches to Millimeters</h2>
+            <label for="lengthInches">Length (inches):</label>
+            <input type="number" id="lengthInches" step="any" oninput="convertInchesToMm()">
+            <label for="widthInches">Width (inches):</label>
+            <input type="number" id="widthInches" step="any" oninput="convertInchesToMm()">
+            <label for="heightInches">Height (inches):</label>
+            <input type="number" id="heightInches" step="any" oninput="convertInchesToMm()">
+        </div>
+        <div class="input-group length-converter">
+            <h2>Millimeters to Inches</h2>
+            <label for="lengthMm">Length (mm):</label>
+            <input type="number" id="lengthMm" step="any" oninput="convertMmToInches()">
+            <label for="widthMm">Width (mm):</label>
+            <input type="number" id="widthMm" step="any" oninput="convertMmToInches()">
+            <label for="heightMm">Height (mm):</label>
+            <input type="number" id="heightMm" step="any" oninput="convertMmToInches()">
+        </div>
+        <div class="input-group weight-converter">
+            <h2>Pounds/Ounces to Grams</h2>
+            <label for="lb">Pounds (lb):</label>
+            <input type="number" id="lb" step="any" oninput="convertLbOzToG()">
+            <label for="oz">Ounces (oz):</label>
+            <input type="number" id="oz" step="any" oninput="convertLbOzToG()">
+        </div>
+        <div class="input-group weight-converter">
+            <h2>Grams to Pounds/Ounces</h2>
+            <label for="grams">Grams (g):</label>
+            <input type="number" id="grams" step="any" oninput="convertGToLbOz()">
+        </div>
+    </div>
+</body>
+</html>
