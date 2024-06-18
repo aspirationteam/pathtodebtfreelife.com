@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美加墨货币换算</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            background-color: #f0f0f0;
+        }
+        .converter {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .converter div {
+            margin-bottom: 15px;
+        }
+        .converter label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .converter input {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 22px);
+        }
+        .rates {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .rates h2 {
+            margin-bottom: 10px;
+        }
+        .rates p {
+            margin: 5px 0;
+            font-size: 1em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>美加墨货币换算</h1>
+    <div class="converter">
+        <div>
+            <label for="usd">美元 (USD)</label>
+            <input type="number" id="usd" placeholder="输入美元金额">
+        </div>
+        <div>
+            <label for="cad">加拿大元 (CAD)</label>
+            <input type="number" id="cad" placeholder="输入加拿大元金额">
+        </div>
+        <div>
+            <label for="mxn">墨西哥比索 (MXN)</label>
+            <input type="number" id="mxn" placeholder="输入墨西哥比索金额">
+        </div>
+        <div>
+            <label for="cny">人民币 (CNY)</label>
+            <input type="number" id="cny" placeholder="输入人民币金额">
+        </div>
+    </div>
+    <div class="rates">
+        <h2>当前汇率:</h2>
+        <p id="rate-usd">美元 (USD): 1</p>
+        <p id="rate-cad">加拿大元 (CAD): 加载中...</p>
+        <p id="rate-mxn">墨西哥比索 (MXN): 加载中...</p>
+        <p id="rate-cny">人民币 (CNY): 加载中...</p>
+    </div>
+    <script>
+        const usdInput = document.getElementById('usd');
+        const cadInput = document.getElementById('cad');
+        const mxnInput = document.getElementById('mxn');
+        const cnyInput = document.getElementById('cny');
+
+        const apiKey = 'cur_live_6jgJDmgipNgUcxFl5QJUCl2iprrct8AZEtoiQlCl';
+        let rates = {
+            usd: 1,
+            cad: 0,
+            mxn: 0,
+            cny: 0
+        };
+
+        async function getRates() {
+            try {
+                const response = await fetch(`https://api.currencyapi.com/v3/latest?apikey=${apiKey}`);
+                const data = await response.json();
+                rates.cad = data.data.CAD.value;
+                rates.mxn = data.data.MXN.value;
+                rates.cny = data.data.CNY.value;
+
+                document.getElementById('rate-cad').textContent = `加拿大元 (CAD): ${rates.cad}`;
+                document.getElementById('rate-mxn').textContent = `墨西哥比索 (MXN): ${rates.mxn}`;
+                document.getElementById('rate-cny').textContent = `人民币 (CNY): ${rates.cny}`;
+            } catch (error) {
+                console.error('Error fetching rates:', error);
+            }
+        }
+
+        function convertCurrency(event) {
+            const value = parseFloat(event.target.value);
+            if (isNaN(value)) return;
+
+            switch(event.target.id) {
+                case 'usd':
+                    cadInput.value = (value * rates.cad / rates.usd).toFixed(2);
+                    mxnInput.value = (value * rates.mxn / rates.usd).toFixed(2);
+                    cnyInput.value = (value * rates.cny / rates.usd).toFixed(2);
+                    break;
+                case 'cad':
+                    usdInput.value = (value * rates.usd / rates.cad).toFixed(2);
+                    mxnInput.value = (value * rates.mxn / rates.cad).toFixed(2);
+                    cnyInput.value = (value * rates.cny / rates.cad).toFixed(2);
+                    break;
+                case 'mxn':
+                    usdInput.value = (value * rates.usd / rates.mxn).toFixed(2);
+                    cadInput.value = (value * rates.cad / rates.mxn).toFixed(2);
+                    cnyInput.value = (value * rates.cny / rates.mxn).toFixed(2);
+                    break;
+                case 'cny':
+                    usdInput.value = (value * rates.usd / rates.cny).toFixed(2);
+                    cadInput.value = (value * rates.cad / rates.cny).toFixed(2);
+                    mxnInput.value = (value * rates.mxn / rates.cny).toFixed(2);
+                    break;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await getRates();
+            usdInput.addEventListener('input', convertCurrency);
+            cadInput.addEventListener('input', convertCurrency);
+            mxnInput.addEventListener('input', convertCurrency);
+            cnyInput.addEventListener('input', convertCurrency);
+        });
+    </script>
+</body>
+</html>
