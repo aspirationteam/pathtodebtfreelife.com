@@ -26,9 +26,13 @@
             margin-bottom: 15px;
         }
         .converter label {
-            display: block;
+            display: flex;
+            align-items: center;
             margin-bottom: 5px;
             font-weight: bold;
+        }
+        .converter label span {
+            margin-right: 10px;
         }
         .converter input {
             padding: 10px;
@@ -55,19 +59,31 @@
     <h1>美加墨货币换算</h1>
     <div class="converter">
         <div>
-            <label for="usd">美元 (USD)</label>
+            <label for="usd">
+                <span role="img" aria-label="USA Flag">🇺🇸</span>
+                美元 (USD)
+            </label>
             <input type="number" id="usd" placeholder="输入美元金额">
         </div>
         <div>
-            <label for="cad">加拿大元 (CAD)</label>
+            <label for="cad">
+                <span role="img" aria-label="Canada Flag">🇨🇦</span>
+                加拿大元 (CAD)
+            </label>
             <input type="number" id="cad" placeholder="输入加拿大元金额">
         </div>
         <div>
-            <label for="mxn">墨西哥比索 (MXN)</label>
+            <label for="mxn">
+                <span role="img" aria-label="Mexico Flag">🇲🇽</span>
+                墨西哥比索 (MXN)
+            </label>
             <input type="number" id="mxn" placeholder="输入墨西哥比索金额">
         </div>
         <div>
-            <label for="cny">人民币 (CNY)</label>
+            <label for="cny">
+                <span role="img" aria-label="China Flag">🇨🇳</span>
+                人民币 (CNY)
+            </label>
             <input type="number" id="cny" placeholder="输入人民币金额">
         </div>
     </div>
