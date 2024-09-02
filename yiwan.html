@@ -4,48 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>huangyiwan.com - 黄一萬的追梦之路</title>
-    <!-- 引入360字体彩云的Roboto字体 -->
-    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <!-- 使用系统无衬线字体 -->
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #ece9e6, #ffffff);
             color: #333;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
         }
         header {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: #ffffff;
             color: #333;
             text-align: center;
             padding: 50px 20px;
             width: 100%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
             margin-bottom: 30px;
-            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            max-width: 800px;
         }
         header h1 {
             margin: 0;
-            font-size: 3em;
+            font-size: 2.8em;
+            font-weight: 700;
         }
         header p {
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin-top: 10px;
+            color: #555;
         }
         .content {
             width: 90%;
-            max-width: 900px;
+            max-width: 800px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         .card {
-            background-color: white;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            border-radius: 16px;
+            background-color: #ffffff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
             margin: 20px 0;
             padding: 30px;
             text-align: center;
@@ -54,21 +57,24 @@
         }
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
         }
         .card h2 {
-            color: #4facfe;
+            color: #333;
             margin-bottom: 20px;
+            font-size: 1.6em;
+            font-weight: 600;
         }
         .card p {
             line-height: 1.8;
-            font-size: 1.1em;
+            font-size: 1em;
             margin-bottom: 20px;
+            color: #555;
         }
         .motivation {
             font-style: italic;
             text-align: center;
-            font-size: 1.4em;
+            font-size: 1.3em;
             color: #333;
             margin: 30px 0;
             font-weight: bold;
@@ -79,9 +85,9 @@
             margin: 0;
         }
         .quotes li {
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin: 15px 0;
-            color: #555;
+            color: #666;
         }
         img {
             max-width: 100%;
@@ -90,17 +96,20 @@
             margin-bottom: 20px;
         }
         .footer {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: #ffffff;
             color: #333;
             text-align: center;
             padding: 20px 0;
             width: 100%;
             margin-top: 50px;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            max-width: 800px;
         }
         .footer p {
             margin: 0;
             font-size: 0.9em;
+            color: #777;
         }
         @media screen and (max-width: 600px) {
             header h1 {
@@ -120,8 +129,9 @@
 
     <div class="content">
         <div class="card">
-
-
+            <img src="image.png" alt="头像">
+            <h2>保持热情与动力</h2>
+            <p>青春时光正好，不要浪费在犹豫和懒惰中。找到你的热情，付出努力，未来定将因你而更加闪亮。</p>
             <p class="motivation">"无论梦想有多大，只要坚持，脚下的路就会越来越清晰！"</p>
         </div>
 
@@ -140,7 +150,7 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; 2024 huangyiwan.com 黄一萬 | 致每一位追梦者！</p>
+        <p>&copy; 2024 huangyiwan.com | 鼓励每一位追梦者！</p>
     </footer>
 </body>
 </html>
