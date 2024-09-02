@@ -3,67 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>huangyiwan.com - 黄一萬的成长之路</title>
+    <title>huangyiwan.com - 黄一萬的追梦之路</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
             color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4682b4;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
             padding: 20px;
-            line-height: 1.6;
         }
-        h1 {
-            color: #4682b4;
-            text-align: center;
+        .card {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 20px;
         }
-        p {
-            font-size: 1.2em;
-            text-align: center;
+        .card h2 {
+            color: #6a5acd;
+        }
+        .card p {
+            line-height: 1.8;
         }
         .motivation {
             font-style: italic;
-            color: #6a5acd;
+            text-align: center;
+            font-size: 1.2em;
+            color: #4682b4;
             margin: 30px 0;
-            text-align: center;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: center;
-        }
-        li {
-            margin: 10px 0;
-            font-weight: bold;
         }
         .footer {
-            margin-top: 50px;
-            font-size: 0.8em;
-            color: #777;
+            background-color: #333;
+            color: white;
             text-align: center;
+            padding: 10px 0;
+            margin-top: 50px;
+        }
+        .footer p {
+            margin: 0;
+        }
+        @media screen and (max-width: 600px) {
+            .card {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>黄一萬的成长之路</h1>
+        <h1>黄一萬的追梦之路</h1>
+        <p>记录每一个成长的瞬间，追逐每一个闪亮的梦想。</p>
     </header>
-    <main>
-        <section>
-            <p>每个人都有属于自己的独特道路，无论遇到什么困难和挑战，都要勇敢前行。</p>
-            <p class="motivation">"成功不是终点，努力才是方向。"</p>
-        </section>
-        <section>
-            <ul>
-                <li>相信自己的潜力，每一次进步都是在积累成功的基础。</li>
-                <li>每一滴汗水，都是成长的见证。</li>
-                <li>面对挑战，保持乐观，坚持到底。</li>
-                <li>不要放弃梦想，未来掌握在自己的手中。</li>
-                <li>无论结果如何，过程中的努力和坚持最值得骄傲。</li>
-            </ul>
-        </section>
-    </main>
+
+    <div class="content">
+        <div class="card">
+            <h2>找到自己的热情，重拾学习的动力</h2>
+            <p>在青春的岁月里，我们每个人都有各自的梦想和目标。无论是为了考上一流大学，还是在运动场上取得突破，每一个努力和汗水，都是未来的垫脚石。相信自己，未来掌握在你手中。</p>
+            <p class="motivation">"无论梦想有多大，只要坚持，脚下的路就会越来越清晰！"</p>
+        </div>
+
+        <div class="card">
+            <h2>杰里米·林的成长之路</h2>
+            <p>杰里米·林（Jeremy Lin）是一位华裔美籍篮球运动员，小时候对篮球充满热情，但在美国长大的他，面对的不仅是激烈的竞争，还有外界对他能力的质疑。在中学时，杰里米不仅面临学业压力，还要在篮球队里努力争取一个位置。</p>
+            <p>在高中的时候，杰里米曾一度因为成绩和篮球之间的矛盾而感到困惑和迷茫。然而，正是通过对篮球的热爱和不懈的努力，他逐渐找到了学习的动力。在训练之余，他刻苦学习文化课，最终成功考上了哈佛大学。这段经历不仅让他在篮球上取得了巨大的进步，也让他意识到学习的重要性。</p>
+            <p>每个人都可以找到属于自己的方向。无论是通过体育还是其他兴趣爱好，只要你肯付出努力和坚持，就能实现自己的梦想，重拾学习的动力，创造美好的未来。</p>
+            <p class="motivation">"成功的路上没有捷径，唯有坚持与努力。" - 杰里米·林</p>
+        </div>
+    </div>
+
     <footer class="footer">
-        &copy; 2024 huangyiwan.com. 鼓励每一位追梦者！
+        <p>&copy; 2024 huangyiwan.com | 鼓励每一位追梦者！</p>
     </footer>
 </body>
 </html>
