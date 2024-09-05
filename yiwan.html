@@ -20,21 +20,31 @@
             background-color: #ffffff;
             color: #333;
             text-align: center;
-            padding: 50px 20px;
+            padding: 30px 20px;
             width: 100%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
             margin-bottom: 30px;
             border-radius: 12px;
             max-width: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        header img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
         }
         header h1 {
             margin: 0;
-            font-size: 2.8em;
+            font-size: 2.4em;
             font-weight: 700;
         }
         header p {
-            font-size: 1.1em;
-            margin-top: 10px;
+            font-size: 1em;
+            margin-top: 5px;
             color: #555;
         }
         .content {
@@ -88,12 +98,6 @@
             margin: 15px 0;
             color: #666;
         }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
         .footer {
             background-color: #ffffff;
             color: #333;
@@ -111,6 +115,10 @@
             color: #777;
         }
         @media screen and (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
             header h1 {
                 font-size: 2em;
             }
@@ -122,13 +130,15 @@
 </head>
 <body>
     <header>
-        <h1>黄一萬的追梦之路</h1>
-        <p>记录每一个成长的瞬间，追逐每一个闪亮的梦想。</p>
+        <img src="image.png" alt="头像">
+        <div>
+            <h1>黄一萬的追梦之路</h1>
+            <p>记录每一个成长的瞬间，追逐每一个闪亮的梦想。</p>
+        </div>
     </header>
 
     <div class="content">
         <div class="card">
-            <img src="image.png" alt="头像">
             <h2>保持热情与动力</h2>
             <p>在前行的路上，保持热情和动力是非常重要的。每一个成功的背后，都有无数次的失败和挫折。不要害怕失败，因为每一次跌倒都是一次学习的机会。相信自己，相信未来，勇敢追梦！</p>
             <p class="motivation">"梦想是指引我们前进的灯塔，坚持是实现梦想的唯一道路！"</p>
@@ -149,7 +159,22 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; 2024 huangyiwan.com | 鼓励每一位追梦者！更新于 2024年9月5日</p>
+        <p>&copy; 2024 huangyiwan.com | 鼓励每一位追梦者！今日日期：<span id="current-date"></span> | 访问次数：<span id="visitor-count"></span></p>
     </footer>
+
+    <script>
+        // JavaScript代码来动态设置当前日期
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = today.toLocaleDateString('zh-CN', options);
+
+        // JavaScript代码来计数访问次数
+        if (localStorage.getItem('visitorCount')) {
+            localStorage.setItem('visitorCount', Number(localStorage.getItem('visitorCount')) + 1);
+        } else {
+            localStorage.setItem('visitorCount', 1);
+        }
+        document.getElementById('visitor-count').textContent = localStorage.getItem('visitorCount');
+    </script>
 </body>
 </html>
